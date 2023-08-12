@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./Components/navbar.js";
+import AboutMe from "./Components/Aboutme.js";
+import Section from "./Components/Sections.js"
+import sectionData from "./datas/sectionData.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App = () => {
+    return (
+        <div>
+            <Navbar />
+            <AboutMe></AboutMe>
+            {
+                sectionData.map((value) => (
+                    <Section title={value.title} des={value.des} />
+                ))
+            }
+
+        </div>
+    )
 }
 
 export default App;
+
+
+
+
+//in JSX
+// instead of using, if else we use => ternary operator
+// instead of, loops => map, filter, reduce, foreach
